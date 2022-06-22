@@ -14,7 +14,7 @@ function Sidebar({ notes, handleClick, handleAddNote }) {
   }
   )
     .then(r=>r.json())
-    .then(data=>  handleAddNote(data))
+    .then(data =>  handleAddNote(data))
   }
 
   return (

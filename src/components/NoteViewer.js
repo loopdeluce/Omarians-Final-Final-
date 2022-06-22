@@ -1,17 +1,22 @@
-import React from "react";
-import { useHistory, useRouteMatch } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useHistory, useRouteMatch, useParams } from "react-router-dom";
 
-function NoteViewer({ displayNote }) {
-  // console.log("noteviewer", displayNote)
-  // console.log('title', title)
-  // console.log('body', body)
+function NoteViewer() {
+  const [displayNote, setDisplayNote] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/notes/${id}`)
+      .then((r) => r.json())
+      .then((data) => setDisplayNote(data));
+  }, [id]);
 
   const editNote = useHistory();
   const match = useRouteMatch();
 
   function editNotes() {
-    editNote.push(`${match.url}/edit`)
-  };
+    editNote.push(`${match.url}/edit`);
+  }
 
   return (
     <>

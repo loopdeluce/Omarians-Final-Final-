@@ -45,6 +45,12 @@ function NoteContainer() {
     setSortBy(sortBy);
   }
 
+  function handleDeleteNote(id) {
+    const undeletedNotes = notes.filter((note) => note.id !== id)
+    setNotes(undeletedNotes);
+  }
+  
+
   const notesCopy = [...notes];
   const filteredNotes = notesCopy
     .filter((val) => {
@@ -64,6 +70,8 @@ function NoteContainer() {
       }
     });
 
+
+
   return (
     <>
       <Search
@@ -76,6 +84,7 @@ function NoteContainer() {
           notes={filteredNotes}
           handleClick={handleClick}
           handleAddNote={handleAddNote}
+          handleDeleteNote = {handleDeleteNote}
         />
         <Content handleEditSubmit={handleEditSubmit} />
       </div>

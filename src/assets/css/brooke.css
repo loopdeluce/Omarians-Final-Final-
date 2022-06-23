@@ -186,3 +186,12 @@ button:focus, input[type="submit"]:focus {
   outline: none;
 }
 
+.note-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.delete-button {
+  cursor: pointer;
+}
+

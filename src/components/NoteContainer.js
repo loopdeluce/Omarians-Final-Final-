@@ -46,31 +46,42 @@ function NoteContainer() {
   }
 
   function handleDeleteNote(id) {
-    const undeletedNotes = notes.filter((note) => note.id !== id)
+    const undeletedNotes = notes.filter((note) => note.id !== id);
     setNotes(undeletedNotes);
   }
-  
 
   const notesCopy = [...notes];
+
   const filteredNotes = notesCopy
     .filter((val) => {
       return val.title.toLowerCase().includes(searchTerm.toLowerCase());
     })
-    .sort((notesCopy1, notesCopy2) => {
+    .sort((notesCopyA, notesCopyB) => {
       if (sortBy === "aToZ") {
-        return notesCopy1.title
+        console.log(notesCopyA);
+        return notesCopyA.title
           .toLowerCase()
-          .localeCompare(notesCopy2.title.toLowerCase());
+          .localeCompare(notesCopyB.title.toLowerCase());
       } else if (sortBy === "zToA") {
-        return notesCopy2.title
+        return notesCopyB.title
           .toLowerCase()
-          .localeCompare(notesCopy1.title.toLowerCase());
+          .localeCompare(notesCopyA.title.toLowerCase());
+      } else if (sortBy === "dateOldToNew") {
+        const [dateAMM, dateADD, dateAYYYY] = notesCopyA.date.split("/");
+        const dateA = `${dateAYYYY}-${dateAMM}-${dateADD}`;
+        const [dateBMM, dateBDD, dateBYYYY] = notesCopyB.date.split("/");
+        const dateB = `${dateBYYYY}-${dateBMM}-${dateBDD}`;
+        return +new Date(dateA) - +new Date(dateB);
+      } else if (sortBy === "dateNewToOld") {
+        const [dateAMM, dateADD, dateAYYYY] = notesCopyA.date.split("/");
+        const dateA = `${dateAYYYY}-${dateAMM}-${dateADD}`;
+        const [dateBMM, dateBDD, dateBYYYY] = notesCopyB.date.split("/");
+        const dateB = `${dateBYYYY}-${dateBMM}-${dateBDD}`;
+        return +new Date(dateB) - +new Date(dateA);
       } else {
         return 0;
       }
     });
-
-
 
   return (
     <>
@@ -84,7 +95,7 @@ function NoteContainer() {
           notes={filteredNotes}
           handleClick={handleClick}
           handleAddNote={handleAddNote}
-          handleDeleteNote = {handleDeleteNote}
+          handleDeleteNote={handleDeleteNote}
         />
         <Content handleEditSubmit={handleEditSubmit} />
       </div>

@@ -3,6 +3,7 @@ import NoteEditor from "./NoteEditor";
 import NoteViewer from "./NoteViewer";
 import Instructions from "./Instructions";
 import { Route, Switch } from "react-router-dom";
+import Pomodomar from "./Pomodomar";
 
 /*
   Advice: If you cannot figure out how to get this component to work,
@@ -14,6 +15,7 @@ import { Route, Switch } from "react-router-dom";
 function Content({ handleEditSubmit }) {
   return (
     <div className="master-detail-element detail">
+      <Pomodomar />
       <Switch>
         <Route exact path="/">
           <Instructions />

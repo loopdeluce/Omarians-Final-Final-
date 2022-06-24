@@ -5,7 +5,8 @@ function Header() {
     <div className="nav-bar">
       <ul>
         <li className="nav-item">
-          <h2>Pomodomar by Luceleaf</h2>
+          <h1>Pomodomar</h1>
+          <h3>by Luceleaf</h3>
         </li>
       </ul>
     </div>

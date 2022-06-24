@@ -72,19 +72,19 @@ p.instructions {
   padding: 5px;
 }
 
-.filter #sort-dropdown {
+#sort-dropdown {
   margin: 5px;
-  font-size: 24px;
+  font-size: 20px;
   color: rgba(0, 0, 0, 0.55);
   cursor: pointer;
 }
 
-.filter #sort-dropdown .sort-option {
+.sort-option {
   color: rgba(0, 0, 0, 0.55);
   background: #fff;
 }
 
-.filter #search-bar {
+#search-bar {
   margin: 5px;
 }
 
@@ -99,6 +99,29 @@ input::placeholder {
   padding-left: 10px;
   color: rgba(0, 0, 0, 0.55);
   font-weight: bolder;
+}
+
+#pomodomar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#tomato-pic {
+  width: 5vh;
+}
+
+#timer-header {
+  display: flex;
+  justify-content: center;
+}
+
+#timer-header {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.55);
+}
+#timer-header h1 {
+  margin: 5px;
+  font-size: 24px;
 }
 
 div.sidebar button {
